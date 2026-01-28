@@ -15,7 +15,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
   const projectTranslations = t.projectData[project.slug as keyof typeof t.projectData];
 
   return (
-    <Link href={`/show/${project.slug}`} className="group block">
+    <Link href={`/projects/${project.slug}`} className="group block">
       <article>
         {/* Image Container */}
         <div className="relative aspect-[4/5] w-full overflow-hidden bg-neutral-100">

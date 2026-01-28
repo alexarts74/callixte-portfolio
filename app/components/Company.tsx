@@ -5,10 +5,12 @@ import Link from "next/link";
 import { useLanguage } from "@/app/i18n/LanguageContext";
 
 const companyImages = [
-  { src: "/images/company_1.jpg", alt: "Company performance" },
-  { src: "/images/company_2.jpg", alt: "Collective creation" },
-  { src: "/images/company_3.jpg", alt: "Studio rehearsal" },
-  { src: "/images/company_4.jpg", alt: "Company show" },
+  { src: "/images/company/company_1.jpg", alt: "Company performance" },
+  { src: "/images/company/company_2.jpg", alt: "Collective creation" },
+  { src: "/images/company/company_3.jpg", alt: "Studio rehearsal" },
+  { src: "/images/company/company_4.jpg", alt: "Company show" },
+  { src: "/images/company/company_5.jpeg", alt: "Company rehearsal" },
+  { src: "/images/company/company_6.png", alt: "Company creation" },
 ];
 
 export default function Company() {
