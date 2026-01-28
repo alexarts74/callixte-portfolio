@@ -52,11 +52,6 @@ export default function CompanyPage() {
         },
       ],
       galleryTitle: "In images",
-      ctaTitle: "Join",
-      ctaTitleItalic: "the adventure",
-      ctaText:
-        "We are always looking for passionate artists to join our collective. Whether you are a dancer, musician, or visual artist, contact us.",
-      ctaButton: "Contact us",
       nextSection: "Discover the projects",
     },
     fr: {
@@ -95,11 +90,6 @@ export default function CompanyPage() {
         },
       ],
       galleryTitle: "En images",
-      ctaTitle: "Rejoindre",
-      ctaTitleItalic: "l'aventure",
-      ctaText:
-        "Nous sommes toujours à la recherche d'artistes passionnés pour rejoindre notre collectif. Que vous soyez danseur, musicien ou artiste visuel, contactez-nous.",
-      ctaButton: "Nous contacter",
       nextSection: "Découvrir les projets",
     },
   };
@@ -335,46 +325,6 @@ export default function CompanyPage() {
                   />
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-20 md:py-28 lg:py-36">
-          <div className="mx-6 md:mx-12 lg:mx-16 xl:mx-24">
-            <div className="mx-auto max-w-3xl text-center">
-              <h2
-                className="mb-6 text-3xl font-light leading-tight tracking-wide md:text-4xl lg:text-5xl"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                {t.ctaTitle} <span className="italic">{t.ctaTitleItalic}</span>
-              </h2>
-              <p
-                className="mb-10 text-base font-light leading-relaxed text-neutral-600 md:text-lg"
-                style={{ fontFamily: "var(--font-body)" }}
-              >
-                {t.ctaText}
-              </p>
-              <a
-                href="mailto:contact@callixte.com"
-                className="inline-flex items-center gap-3 border border-black px-8 py-4 text-sm font-light tracking-[0.2em] uppercase transition-colors hover:bg-black hover:text-white"
-                style={{ fontFamily: "var(--font-body)" }}
-              >
-                {t.ctaButton}
-                <svg
-                  className="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </a>
             </div>
           </div>
         </section>
