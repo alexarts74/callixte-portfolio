@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "@/app/data/projects";
+import { useLanguage } from "@/app/i18n/LanguageContext";
 
 interface ProjectCardProps {
   project: Project;
@@ -8,6 +11,9 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
+  const { t } = useLanguage();
+  const projectTranslations = t.projectData[project.slug as keyof typeof t.projectData];
+
   return (
     <Link href={`/show/${project.slug}`} className="group block">
       <article>
@@ -28,7 +34,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               className="border border-white px-5 py-2.5 text-xs font-light tracking-[0.3em] text-white uppercase"
               style={{ fontFamily: "var(--font-body)" }}
             >
-              Découvrir
+              {t.projects.viewProject}
             </span>
           </div>
         </div>
@@ -46,7 +52,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               className="mt-1.5 text-sm font-light text-neutral-500 transition-colors duration-300 group-hover:text-neutral-700"
               style={{ fontFamily: "var(--font-body)" }}
             >
-              {project.shortDescription}
+              {projectTranslations?.shortDescription || project.shortDescription}
             </p>
           </div>
           <span

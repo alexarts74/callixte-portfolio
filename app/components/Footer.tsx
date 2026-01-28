@@ -1,4 +1,10 @@
+"use client";
+
+import { useLanguage } from "@/app/i18n/LanguageContext";
+
 export default function Footer() {
+  const { t, locale } = useLanguage();
+
   return (
     <footer className="w-full bg-black py-16 md:py-20 lg:py-24 text-white">
       <div className="mx-6 md:mx-12 lg:mx-16 xl:mx-24">
@@ -16,8 +22,9 @@ export default function Footer() {
               className="mt-4 max-w-md text-base font-light leading-relaxed text-white/70"
               style={{ fontFamily: "var(--font-body)" }}
             >
-              Danseuse et chorégraphe contemporaine basée à Paris. Disponible
-              pour collaborations, résidences et créations.
+              {locale === "en"
+                ? "Contemporary dancer and choreographer based in Paris. Available for collaborations, residencies, and creations."
+                : "Danseuse et chorégraphe contemporaine basée à Paris. Disponible pour collaborations, résidences et créations."}
             </p>
           </div>
 
@@ -35,21 +42,21 @@ export default function Footer() {
                 className="text-base font-light text-white/80 transition-colors hover:text-white"
                 style={{ fontFamily: "var(--font-body)" }}
               >
-                Accueil
+                {locale === "en" ? "Home" : "Accueil"}
               </a>
               <a
                 href="#projets"
                 className="text-base font-light text-white/80 transition-colors hover:text-white"
                 style={{ fontFamily: "var(--font-body)" }}
               >
-                Projets
+                {t.footer.nav.projects}
               </a>
               <a
                 href="#about"
                 className="text-base font-light text-white/80 transition-colors hover:text-white"
                 style={{ fontFamily: "var(--font-body)" }}
               >
-                À propos
+                {t.footer.nav.about}
               </a>
             </nav>
           </div>
@@ -60,7 +67,7 @@ export default function Footer() {
               className="mb-4 text-sm font-light tracking-[0.2em] text-white/50 uppercase"
               style={{ fontFamily: "var(--font-body)" }}
             >
-              Contact
+              {t.footer.nav.contact}
             </h4>
             <div className="flex flex-col gap-3">
               <a
@@ -98,7 +105,7 @@ export default function Footer() {
             className="text-sm font-light text-white/50"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            © {new Date().getFullYear()} Callixte. Tous droits réservés.
+            © {new Date().getFullYear()} Callixte. {t.footer.rights}
           </p>
           <p
             className="text-sm font-light text-white/50"

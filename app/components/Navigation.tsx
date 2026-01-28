@@ -2,18 +2,20 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useLanguage } from "@/app/i18n/LanguageContext";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
-      // Change navbar style after scrolling past the hero (100vh)
       setScrolled(window.scrollY > window.innerHeight - 100);
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Check initial state
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -40,24 +42,35 @@ export default function Navigation() {
               scrolled ? "text-black" : "text-white"
             } hover:opacity-60`}
           >
-            Projets
+            {t.nav.projects}
           </Link>
           <Link
-            href="#about"
+            href="/company"
             className={`text-xs font-light tracking-[0.2em] uppercase transition-colors ${
               scrolled ? "text-black" : "text-white"
             } hover:opacity-60`}
           >
-            À propos
+            {t.nav.company}
           </Link>
-          <a
-            href="mailto:contact@callixte.com"
+          <Link
+            href="#about"
             className={`hidden text-xs font-light tracking-[0.2em] uppercase transition-colors md:block ${
               scrolled ? "text-black" : "text-white"
             } hover:opacity-60`}
           >
-            Contact
+            {t.nav.about}
+          </Link>
+          <a
+            href="mailto:contact@callixte.com"
+            className={`hidden text-xs font-light tracking-[0.2em] uppercase transition-colors lg:block ${
+              scrolled ? "text-black" : "text-white"
+            } hover:opacity-60`}
+          >
+            {t.nav.contact}
           </a>
+          <LanguageSwitcher
+            className={scrolled ? "text-black" : "text-white"}
+          />
         </div>
       </div>
     </nav>

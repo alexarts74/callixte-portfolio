@@ -1,8 +1,13 @@
+"use client";
+
 import Image from "next/image";
+import { useLanguage } from "@/app/i18n/LanguageContext";
 
 export default function Presentation() {
+  const { t } = useLanguage();
+
   return (
-    <section className="w-full bg-white py-20 md:py-28 lg:py-36">
+    <section id="about" className="w-full bg-white py-20 md:py-28 lg:py-36">
       <div className="mx-6 md:mx-12 lg:mx-16 xl:mx-24">
         {/* Section Header - Séparation */}
         <div className="mb-10 md:mb-12 flex items-center gap-4">
@@ -10,14 +15,14 @@ export default function Presentation() {
             className="shrink-0 text-xs font-light tracking-[0.3em] text-neutral-400 uppercase"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            01
+            {t.presentation.number}
           </span>
           <div className="h-px flex-1 bg-neutral-200" />
           <span
             className="shrink-0 text-xs font-light tracking-[0.3em] text-neutral-400 uppercase"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            À propos
+            {t.presentation.section}
           </span>
         </div>
 
@@ -41,31 +46,18 @@ export default function Presentation() {
               className="mb-6 text-3xl font-light leading-tight tracking-wide md:text-4xl lg:text-5xl"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Le mouvement
+              {t.presentation.title}
               <br />
-              <span className="italic">comme langage</span>
+              <span className="italic">{t.presentation.titleItalic}</span>
             </h2>
 
             <div
               className="space-y-4 text-base font-light leading-relaxed text-neutral-600"
               style={{ fontFamily: "var(--font-body)" }}
             >
-              <p>
-                Danseuse et chorégraphe contemporaine depuis plus de dix ans,
-                j&apos;explore les territoires du mouvement à la croisée de la
-                danse, de la performance et de l&apos;installation.
-              </p>
-              <p>
-                Formée au Conservatoire National Supérieur de Danse de Paris,
-                j&apos;ai collaboré avec des chorégraphes tels que Anne Teresa De
-                Keersmaeker, Sidi Larbi Cherkaoui et Ohad Naharin avant de
-                développer mes propres créations.
-              </p>
-              <p>
-                Chaque projet est une invitation à questionner notre rapport au
-                corps, à l&apos;espace et au temps. Une recherche permanente de
-                l&apos;authenticité du geste.
-              </p>
+              <p>{t.presentation.paragraph1}</p>
+              <p>{t.presentation.paragraph2}</p>
+              <p>{t.presentation.paragraph3}</p>
             </div>
 
             {/* Stats */}
@@ -81,7 +73,7 @@ export default function Presentation() {
                   className="mt-1 text-[10px] font-light tracking-wider text-neutral-500 uppercase"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
-                  Années d&apos;exp.
+                  {t.presentation.stats.experience}
                 </p>
               </div>
               <div>
@@ -95,7 +87,7 @@ export default function Presentation() {
                   className="mt-1 text-[10px] font-light tracking-wider text-neutral-500 uppercase"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
-                  Créations
+                  {t.presentation.stats.creations}
                 </p>
               </div>
               <div>
@@ -109,7 +101,7 @@ export default function Presentation() {
                   className="mt-1 text-[10px] font-light tracking-wider text-neutral-500 uppercase"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
-                  Pays
+                  {t.presentation.stats.countries}
                 </p>
               </div>
             </div>

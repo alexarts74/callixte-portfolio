@@ -1,4 +1,10 @@
+"use client";
+
+import { useLanguage } from "@/app/i18n/LanguageContext";
+
 export default function VideoHero() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative h-screen w-full overflow-hidden bg-black">
       {/* Video Background */}
@@ -9,7 +15,7 @@ export default function VideoHero() {
         playsInline
         className="absolute inset-0 h-full w-full object-cover opacity-70"
       >
-        <source src="/videos/presentation.mp4" type="video/mp4" />
+        <source src="/videos/solo_1.mp4" type="video/mp4" />
       </video>
 
       {/* Gradient Overlay */}
@@ -21,7 +27,7 @@ export default function VideoHero() {
           className="mb-4 text-xs font-light tracking-[0.4em] text-white/80 uppercase md:text-sm"
           style={{ fontFamily: "var(--font-body)" }}
         >
-          Danseuse & Chorégraphe
+          {t.hero.subtitle}
         </p>
         <h1
           className="text-center text-6xl font-light tracking-[0.15em] text-white uppercase md:text-8xl lg:text-9xl"
@@ -39,7 +45,7 @@ export default function VideoHero() {
             className="text-[10px] font-light tracking-[0.3em] text-white/60 uppercase"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            Scroll
+            {t.hero.scroll}
           </span>
           <div className="h-12 w-px bg-gradient-to-b from-white/60 to-transparent" />
         </div>

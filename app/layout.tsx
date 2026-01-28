@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "./i18n/LanguageContext";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -17,8 +18,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Callixte | Danseuse Contemporaine",
-  description: "Portfolio de Callixte, danseuse et chorégraphe contemporaine",
+  title: "Callixte | Contemporary Dancer",
+  description: "Portfolio of Callixte, contemporary dancer and choreographer",
 };
 
 export default function RootLayout({
@@ -27,9 +28,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${cormorant.variable} ${inter.variable} scroll-smooth`}>
+    <html lang="en" className={`${cormorant.variable} ${inter.variable} scroll-smooth`}>
       <body className="min-h-screen w-full overflow-x-hidden bg-white text-black antialiased leading-relaxed">
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );
