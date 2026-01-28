@@ -71,14 +71,14 @@ export default function Footer() {
             </h4>
             <div className="flex flex-col gap-3">
               <a
-                href="mailto:contact@callixte.com"
+                href="mailto:iungcallixte@gmail.com"
                 className="text-base font-light text-white/80 transition-colors hover:text-white"
                 style={{ fontFamily: "var(--font-body)" }}
               >
-                contact@callixte.com
+                iungcallixte@gmail.com
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/calliiiixte/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-base font-light text-white/80 transition-colors hover:text-white"

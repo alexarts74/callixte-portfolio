@@ -6,10 +6,10 @@ import { useLanguage } from "@/app/i18n/LanguageContext";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 const companyImages = [
-  { src: "/images/company_1.jpg", alt: "Company performance" },
-  { src: "/images/company_2.jpg", alt: "Collective creation" },
-  { src: "/images/company_3.jpg", alt: "Studio rehearsal" },
-  { src: "/images/company_4.jpg", alt: "Company show" },
+  { src: "/images/company/company_1.jpg", alt: "Company performance" },
+  { src: "/images/company/company_2.jpg", alt: "Collective creation" },
+  { src: "/images/company/company_3.jpg", alt: "Studio rehearsal" },
+  { src: "/images/company/company_4.jpg", alt: "Company show" },
 ];
 
 export default function CompanyPage() {
@@ -135,7 +135,7 @@ export default function CompanyPage() {
         {/* Hero Section */}
         <section className="relative h-[80vh] w-full overflow-hidden bg-black">
           <Image
-            src="/images/company_1.jpg"
+            src="/images/company/company_1.jpg"
             alt="Company"
             fill
             className="object-cover opacity-60"
@@ -178,7 +178,7 @@ export default function CompanyPage() {
               {/* Image */}
               <div className="relative aspect-[4/5] overflow-hidden bg-neutral-100">
                 <Image
-                  src="/images/company_2.jpg"
+                  src="/images/company/company_2.jpg"
                   alt="Our approach"
                   fill
                   className="object-cover"
@@ -282,7 +282,7 @@ export default function CompanyPage() {
               {/* Image */}
               <div className="relative aspect-[4/5] overflow-hidden bg-neutral-100 lg:order-1">
                 <Image
-                  src="/images/company_3.jpg"
+                  src="/images/company/company_3.jpg"
                   alt="The artists"
                   fill
                   className="object-cover"

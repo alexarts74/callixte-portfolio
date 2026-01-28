@@ -28,8 +28,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${inter.variable} scroll-smooth`}>
-      <body className="min-h-screen w-full overflow-x-hidden bg-white text-black antialiased leading-relaxed">
+    <html lang="en" className={`${cormorant.variable} ${inter.variable} scroll-smooth overscroll-none`}>
+      <body className="min-h-screen w-full overflow-x-hidden overscroll-none bg-white text-black antialiased leading-relaxed">
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

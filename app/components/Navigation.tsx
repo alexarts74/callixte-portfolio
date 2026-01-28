@@ -61,7 +61,7 @@ export default function Navigation() {
             {t.nav.about}
           </Link>
           <a
-            href="mailto:contact@callixte.com"
+            href="mailto:iungcallixte@gmail.com"
             className={`hidden text-xs font-light tracking-[0.2em] uppercase transition-colors lg:block ${
               scrolled ? "text-black" : "text-white"
             } hover:opacity-60`}
