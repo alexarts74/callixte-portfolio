@@ -1,17 +1,23 @@
 "use client";
 
 import { useLanguage } from "@/app/i18n/LanguageContext";
+import { useInView } from "@/app/hooks/useInView";
 
 export default function Footer() {
   const { t, locale } = useLanguage();
+  const { ref: footerRef, isVisible } = useInView({ threshold: 0.1 });
 
   return (
-    <footer className="w-full bg-black py-16 md:py-20 lg:py-24 text-white">
+    <footer ref={footerRef} className="w-full bg-black py-16 md:py-20 lg:py-24 text-white">
       <div className="mx-6 md:mx-12 lg:mx-16 xl:mx-24">
         {/* Main Footer Content */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 md:gap-10">
           {/* Brand */}
-          <div className="lg:col-span-2">
+          <div
+            className={`lg:col-span-2 transition-all duration-700 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+          >
             <h3
               className="text-3xl font-light tracking-[0.1em] uppercase md:text-4xl"
               style={{ fontFamily: "var(--font-display)" }}
@@ -29,7 +35,12 @@ export default function Footer() {
           </div>
 
           {/* Navigation */}
-          <div>
+          <div
+            className={`transition-all duration-700 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+            style={{ transitionDelay: "0.1s" }}
+          >
             <h4
               className="mb-4 text-sm font-light tracking-[0.2em] text-white/50 uppercase"
               style={{ fontFamily: "var(--font-body)" }}
@@ -39,21 +50,21 @@ export default function Footer() {
             <nav className="flex flex-col gap-3">
               <a
                 href="#"
-                className="text-base font-light text-white/80 transition-colors hover:text-white"
+                className="text-base font-light text-white/80 transition-all duration-300 hover:text-white hover:translate-x-1"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 {locale === "en" ? "Home" : "Accueil"}
               </a>
               <a
                 href="#projets"
-                className="text-base font-light text-white/80 transition-colors hover:text-white"
+                className="text-base font-light text-white/80 transition-all duration-300 hover:text-white hover:translate-x-1"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 {t.footer.nav.projects}
               </a>
               <a
                 href="#about"
-                className="text-base font-light text-white/80 transition-colors hover:text-white"
+                className="text-base font-light text-white/80 transition-all duration-300 hover:text-white hover:translate-x-1"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 {t.footer.nav.about}
@@ -62,7 +73,12 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div
+            className={`transition-all duration-700 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+            style={{ transitionDelay: "0.2s" }}
+          >
             <h4
               className="mb-4 text-sm font-light tracking-[0.2em] text-white/50 uppercase"
               style={{ fontFamily: "var(--font-body)" }}
@@ -72,7 +88,7 @@ export default function Footer() {
             <div className="flex flex-col gap-3">
               <a
                 href="mailto:iungcallixte@gmail.com"
-                className="text-base font-light text-white/80 transition-colors hover:text-white"
+                className="text-base font-light text-white/80 transition-all duration-300 hover:text-white hover:translate-x-1"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 iungcallixte@gmail.com
@@ -81,7 +97,7 @@ export default function Footer() {
                 href="https://www.instagram.com/calliiiixte/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-base font-light text-white/80 transition-colors hover:text-white"
+                className="text-base font-light text-white/80 transition-all duration-300 hover:text-white hover:translate-x-1"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 Instagram
@@ -90,7 +106,7 @@ export default function Footer() {
                 href="https://vimeo.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-base font-light text-white/80 transition-colors hover:text-white"
+                className="text-base font-light text-white/80 transition-all duration-300 hover:text-white hover:translate-x-1"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 Vimeo
@@ -100,7 +116,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 md:mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/20 pt-6 md:flex-row">
+        <div
+          className={`mt-12 md:mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/20 pt-6 md:flex-row transition-all duration-700 ${
+            isVisible ? "opacity-100" : "opacity-0"
+          }`}
+          style={{ transitionDelay: "0.4s" }}
+        >
           <p
             className="text-sm font-light text-white/50"
             style={{ fontFamily: "var(--font-body)" }}

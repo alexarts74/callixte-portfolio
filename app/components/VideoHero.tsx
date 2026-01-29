@@ -24,22 +24,25 @@ export default function VideoHero() {
       {/* Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
         <p
-          className="mb-4 text-xs font-light tracking-[0.4em] text-white/80 uppercase md:text-sm"
-          style={{ fontFamily: "var(--font-body)" }}
+          className="mb-4 text-xs font-light tracking-[0.4em] text-white/80 uppercase md:text-sm animate-fade-in-up opacity-0"
+          style={{ fontFamily: "var(--font-body)", animationDelay: "0.3s", animationFillMode: "forwards" }}
         >
           {t.hero.subtitle}
         </p>
         <h1
-          className="text-center text-6xl font-light tracking-[0.15em] text-white uppercase md:text-8xl lg:text-9xl"
-          style={{ fontFamily: "var(--font-display)" }}
+          className="text-center text-6xl font-light tracking-[0.15em] text-white uppercase md:text-8xl lg:text-9xl animate-fade-in-up opacity-0"
+          style={{ fontFamily: "var(--font-display)", animationDelay: "0.5s", animationFillMode: "forwards" }}
         >
           Callixte
         </h1>
-        <div className="mt-6 h-px w-24 bg-white/40" />
+        <div
+          className="mt-6 h-px w-24 bg-white/40 animate-line-expand opacity-0"
+          style={{ animationDelay: "0.8s", animationFillMode: "forwards" }}
+        />
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
+      <div className="absolute bottom-12 left-1/2 animate-scroll-pulse">
         <div className="flex flex-col items-center gap-2">
           <span
             className="text-[10px] font-light tracking-[0.3em] text-white/60 uppercase"
