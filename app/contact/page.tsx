@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, useEffect, FormEvent } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/app/i18n/LanguageContext";
 import LanguageSwitcher from "@/app/components/LanguageSwitcher";
 
 export default function ContactPage() {
   const { t } = useLanguage();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,6 +16,19 @@ export default function ContactPage() {
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
+  const closeMenu = () => setIsMenuOpen(false);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -43,17 +57,22 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="h-screen overflow-hidden bg-white">
+    <div className="min-h-screen overflow-y-auto bg-white lg:h-screen lg:overflow-hidden">
       {/* Navigation */}
-      <nav className="absolute top-0 left-0 right-0 z-50">
+      <nav className={`fixed top-0 left-0 right-0 z-50 ${isMenuOpen ? "mix-blend-normal" : ""}`}>
         <div className="mx-6 flex items-center justify-between py-5 md:mx-12 md:py-6 lg:mx-16 xl:mx-24">
           <Link
             href="/"
-            className="text-sm font-light tracking-[0.3em] uppercase text-black hover:opacity-60 transition-colors"
+            className={`text-sm font-light tracking-[0.3em] uppercase transition-colors hover:opacity-60 z-50 ${
+              isMenuOpen ? "text-white" : "text-black"
+            }`}
+            onClick={closeMenu}
           >
             Callixte
           </Link>
-          <div className="flex items-center gap-6 md:gap-8">
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
             <Link
               href="/#projets"
               className="text-xs font-light tracking-[0.2em] uppercase text-black hover:opacity-60 transition-colors"
@@ -68,10 +87,75 @@ export default function ContactPage() {
             </Link>
             <LanguageSwitcher className="text-black" />
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden z-50 relative w-6 h-5 flex flex-col justify-between"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={isMenuOpen}
+          >
+            <span
+              className={`block h-[1px] w-full transition-all duration-300 origin-center ${
+                isMenuOpen ? "bg-white rotate-45 translate-y-[9px]" : "bg-black"
+              }`}
+            />
+            <span
+              className={`block h-[1px] w-full transition-all duration-300 ${
+                isMenuOpen ? "bg-white opacity-0" : "bg-black"
+              }`}
+            />
+            <span
+              className={`block h-[1px] w-full transition-all duration-300 origin-center ${
+                isMenuOpen ? "bg-white -rotate-45 -translate-y-[9px]" : "bg-black"
+              }`}
+            />
+          </button>
         </div>
       </nav>
 
-      <main className="h-full flex flex-col justify-center px-6 md:px-12 lg:px-16 xl:px-24">
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`fixed inset-0 z-40 bg-black transition-all duration-500 md:hidden ${
+          isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="flex flex-col items-center justify-center h-full gap-8">
+          <Link
+            href="/#projets"
+            className="text-white text-2xl font-light tracking-[0.3em] uppercase hover:opacity-60 transition-opacity"
+            onClick={closeMenu}
+          >
+            {t.nav.projects}
+          </Link>
+          <Link
+            href="/company"
+            className="text-white text-2xl font-light tracking-[0.3em] uppercase hover:opacity-60 transition-opacity"
+            onClick={closeMenu}
+          >
+            {t.nav.company}
+          </Link>
+          <Link
+            href="#about"
+            className="text-white text-2xl font-light tracking-[0.3em] uppercase hover:opacity-60 transition-opacity"
+            onClick={closeMenu}
+          >
+            {t.nav.about}
+          </Link>
+          <Link
+            href="/contact"
+            className="text-white text-2xl font-light tracking-[0.3em] uppercase hover:opacity-60 transition-opacity"
+            onClick={closeMenu}
+          >
+            {t.nav.contact}
+          </Link>
+          <div className="mt-8">
+            <LanguageSwitcher className="text-white text-lg" />
+          </div>
+        </div>
+      </div>
+
+      <main className="min-h-full px-6 pt-24 pb-12 md:px-12 lg:flex lg:flex-col lg:justify-center lg:px-16 lg:pt-0 lg:pb-0 xl:px-24">
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 xl:gap-24">
           {/* Left: Header + Form */}
           <div>
