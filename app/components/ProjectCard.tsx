@@ -28,13 +28,31 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           {/* Hover Overlay */}
           <div className="absolute inset-0 bg-black/0 transition-all duration-500 group-hover:bg-black/40" />
 
-          {/* Hover Content */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-all duration-500 group-hover:opacity-100">
+          {/* Hover Content - Desktop */}
+          <div className="absolute inset-0 hidden md:flex items-center justify-center opacity-0 transition-all duration-500 group-hover:opacity-100">
             <span
               className="border border-white px-5 py-2.5 text-xs font-light tracking-[0.3em] text-white uppercase"
               style={{ fontFamily: "var(--font-body)" }}
             >
               {t.projects.viewProject}
+            </span>
+          </div>
+
+          {/* Mobile indicator - Always visible */}
+          <div className="absolute bottom-4 right-4 md:hidden">
+            <span
+              className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-3 py-2 text-xs font-light tracking-[0.15em] text-neutral-800 uppercase"
+              style={{ fontFamily: "var(--font-body)" }}
+            >
+              {t.projects.viewProject}
+              <svg
+                className="w-3 h-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+              </svg>
             </span>
           </div>
         </div>
