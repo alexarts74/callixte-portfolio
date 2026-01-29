@@ -18,8 +18,60 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Callixte | Contemporary Dancer",
-  description: "Portfolio of Callixte, contemporary dancer and choreographer",
+  title: {
+    default: "Callixte | Danseuse & Chorégraphe Contemporaine",
+    template: "%s | Callixte",
+  },
+  description:
+    "Portfolio de Callixte, danseuse et chorégraphe contemporaine basée à Paris. Découvrez ses créations, performances et collaborations artistiques.",
+  keywords: [
+    "danse contemporaine",
+    "chorégraphe",
+    "danseuse",
+    "Paris",
+    "performance",
+    "art",
+    "contemporary dance",
+    "choreographer",
+  ],
+  authors: [{ name: "Callixte" }],
+  creator: "Callixte",
+  metadataBase: new URL("https://callixte.com"),
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    alternateLocale: "en_US",
+    siteName: "Callixte",
+    title: "Callixte | Danseuse & Chorégraphe Contemporaine",
+    description:
+      "Portfolio de Callixte, danseuse et chorégraphe contemporaine basée à Paris.",
+    images: [
+      {
+        url: "/images/portrait.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Callixte - Danseuse Contemporaine",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Callixte | Danseuse & Chorégraphe Contemporaine",
+    description:
+      "Portfolio de Callixte, danseuse et chorégraphe contemporaine basée à Paris.",
+    images: ["/images/portrait.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({

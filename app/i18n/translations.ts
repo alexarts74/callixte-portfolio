@@ -52,6 +52,26 @@ export const translations = {
         "The company brings together artists with varied backgrounds, united by a common passion for choreographic exploration and the desire to push the boundaries of contemporary dance.",
       cta: "Join the adventure",
     },
+    // Contact
+    contact: {
+      section: "Contact",
+      title: "Get in",
+      titleItalic: "touch",
+      description:
+        "For collaborations, residencies, performances, or any other inquiries, feel free to reach out. I'd love to hear from you.",
+      social: "Social",
+      location: "Location",
+      successMessage: "Thank you for your message! I'll get back to you soon.",
+      sendAnother: "Send another message",
+      form: {
+        name: "Name",
+        email: "Email",
+        subject: "Subject",
+        message: "Message",
+        send: "Send message",
+        sending: "Sending...",
+      },
+    },
     // Footer
     footer: {
       rights: "All rights reserved.",
@@ -144,6 +164,26 @@ export const translations = {
       paragraph3:
         "La compagnie réunit des artistes aux parcours variés, unis par une même passion pour l'exploration chorégraphique et le désir de repousser les frontières de la danse contemporaine.",
       cta: "Rejoindre l'aventure",
+    },
+    // Contact
+    contact: {
+      section: "Contact",
+      title: "Entrons en",
+      titleItalic: "contact",
+      description:
+        "Pour des collaborations, résidences, performances ou toute autre demande, n'hésitez pas à me contacter. J'ai hâte de vous lire.",
+      social: "Réseaux sociaux",
+      location: "Localisation",
+      successMessage: "Merci pour votre message ! Je vous répondrai bientôt.",
+      sendAnother: "Envoyer un autre message",
+      form: {
+        name: "Nom",
+        email: "Email",
+        subject: "Sujet",
+        message: "Message",
+        send: "Envoyer",
+        sending: "Envoi en cours...",
+      },
     },
     // Footer
     footer: {

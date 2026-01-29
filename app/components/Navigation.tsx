@@ -60,14 +60,14 @@ export default function Navigation() {
           >
             {t.nav.about}
           </Link>
-          <a
-            href="mailto:iungcallixte@gmail.com"
+          <Link
+            href="/contact"
             className={`hidden text-xs font-light tracking-[0.2em] uppercase transition-colors lg:block ${
               scrolled ? "text-black" : "text-white"
             } hover:opacity-60`}
           >
             {t.nav.contact}
-          </a>
+          </Link>
           <LanguageSwitcher
             className={scrolled ? "text-black" : "text-white"}
           />
