@@ -7,7 +7,17 @@
 
 html, body {
   overscroll-behavior: none;
-  -webkit-overflow-scrolling: auto;
+  touch-action: pan-y;
+}
+
+/* Forcer la navbar à rester stable sur mobile */
+@media (max-width: 768px) {
+  nav.fixed {
+    position: fixed !important;
+    top: 0 !important;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
 }
 
 /* Animations subtiles */

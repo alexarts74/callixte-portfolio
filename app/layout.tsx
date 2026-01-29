@@ -17,6 +17,12 @@ const inter = Inter({
   display: "swap",
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover" as const,
+};
+
 export const metadata: Metadata = {
   title: {
     default: "Callixte | Danseuse & Chorégraphe Contemporaine",
@@ -81,7 +87,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${cormorant.variable} ${inter.variable} scroll-smooth overscroll-none`}>
-      <body className="min-h-screen w-full overflow-x-hidden overscroll-none bg-white text-black antialiased leading-relaxed">
+      <body className="min-h-screen w-full overflow-x-hidden bg-white text-black antialiased leading-relaxed">
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
